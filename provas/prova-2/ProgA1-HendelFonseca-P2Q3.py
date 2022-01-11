@@ -23,12 +23,16 @@ def reversing_word(file, reverse_word):
             if letter != ' ' and letter != '\n':
                 temp_word += letter
             elif temp_word == reverse_word:
-                new_line += ' ' + f'{inverted_word}'
                 temp_word = ''
+                new_line += inverted_word + letter
             else:
-                new_line += ' ' + f'{temp_word}'
+                new_line += temp_word + letter
                 temp_word = ''
-        new_data.write(new_line + '\n')
+        if temp_word != '' and temp_word != reverse_word:
+            new_line += temp_word
+        elif temp_word == reverse_word:
+            new_line += inverted_word
+        new_data.write(new_line)
     data.close()
     new_data.close()
     remove(file)

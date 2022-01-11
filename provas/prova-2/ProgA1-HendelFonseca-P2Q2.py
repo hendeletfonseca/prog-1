@@ -13,9 +13,11 @@ def add_new_product(file, product):
     from os import remove, rename
     data = open(file, 'r', encoding='utf-8')
     new_data = open(file + '$$$', 'w', encoding='utf-8')
+    new_product_added = False
     for line in data:
-        if alphabetic_ord(product, line) == product:
+        if alphabetic_ord(product, line) == product and not new_product_added:
             new_data.write(product + '\n')
+            new_product_added = True  # altera o bool para que o novo produto não seja adicionado 2 vezes
         new_data.write(line)
     data.close()
     new_data.close()
@@ -25,9 +27,9 @@ def add_new_product(file, product):
 
 
 def alphabetic_ord(str1, str2):
-    if len(str1) < len(str2):
+    if len(str1) < len(str2):  # para nao apresentar index out of range
         for i in range(len(str1)):
-            if ord(str1[i]) < ord(str2[i]):
+            if ord(str1[i]) < ord(str2[i]):  # ord retorna um int que representa a str de len==1
                 return str1
             elif ord(str1[i]) > ord(str2[i]):
                 return str2

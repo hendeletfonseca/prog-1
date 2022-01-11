@@ -8,7 +8,7 @@ def nearest_and_furthest_point(file, x, y, ignore_line):
         if pos != ignore_line:
             x1, y1 = map(int, line.split())
             distance = points_distance(x, y, x1, y1)
-            if nearest == []:
+            if not nearest:
                 nearest.append(distance)
                 nearest.append(x1)
                 nearest.append(y1)
