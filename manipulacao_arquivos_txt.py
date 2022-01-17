@@ -38,7 +38,3 @@ def anexarOuCriarArquivo(nm):
         dados.write(novaLinha + '\n')
     dados.close()
     return None
-
-
-criarArquivo('simp2q2')
-#código#preço#quantidade#dias restantes de validade
