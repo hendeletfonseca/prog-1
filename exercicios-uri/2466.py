@@ -1,3 +1,4 @@
+# https://www.beecrowd.com.br/judge/pt/problems/view/2466
 # preta (1) branca (-1) / iguais-preta diferentes-branca
 num_balls = int(input())
 last_line = list(map(int, input().split()))

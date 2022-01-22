@@ -1,3 +1,4 @@
+# https://www.beecrowd.com.br/judge/pt/problems/view/3102
 test_cases = int(input())
 for i in range(test_cases):
     xa, ya, xb, yb, xc, yc = map(int, input().split())
