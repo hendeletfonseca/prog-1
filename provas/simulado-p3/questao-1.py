@@ -1,13 +1,13 @@
-def criar_dict(nm, min, max):
+def criar_dict(nm, minimo, maximo):
     all_words = dict()
     dados = open(nm, 'r', encoding='utf-8')
     line = 1
     for linha in dados:
         palavras = linha.strip('\n').split()
         for palavra in palavras:
-            if min <= len(palavra) <= max:
-                if all_words.get(palavra) == None:
-                        all_words[palavra] = {line}
+            if minimo <= len(palavra) <= maximo:
+                if all_words.get(palavra) is None:
+                    all_words[palavra] = {line}
                 else:
                     all_words[palavra].add(line)
         line += 1
@@ -16,7 +16,7 @@ def criar_dict(nm, min, max):
 
 
 def mostrar(dic):
-    for chave in dic:
+    for chave in sorted(dic):
         print(f'Chave: {chave}')
         print(f'Linha em que ela ocorre: {dic[chave]}')
         print()

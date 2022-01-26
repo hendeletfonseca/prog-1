@@ -4,24 +4,15 @@ def produz(nm, minimo, maximo):
     for linha in dados:
         cod, des, qtd, preco = linha.strip('\n').split('#')
         if minimo <= float(preco) <= maximo:
-            if produtos.get(cod) is None:
-                produtos[cod] = [des, int(qtd), float(preco)]
-            else:
-                produtos[cod] = [des, int(qtd) + produtos[cod][1], float(preco) + produtos[cod][2]]
+            produtos[cod] = [des, int(qtd), float(preco)]
     dados.close()
     return produtos
 
 
 def mostra(dic):
-    codgs = []
-    for val in dic:
-        if codgs is None:
-            codgs = [str(val)]
-        else:
-            codgs.append(str(val))
-    sorted_codgs = sorted(codgs)
-    for cod in sorted_codgs:
-        print(f'Código: {cod} Descrição: {dic[str(cod)][0]} Produtos: {dic[str(cod)][1]} Preco: R${dic[str(cod)][2]}')
+    print('Produtos dentro do intervalo de preços desejado:')
+    for cod in sorted(dic):
+        print(f'Código: {cod} Descrição: {dic[cod][0]} Produtos: {dic[cod][1]} Preco: R${dic[cod][2]}')
     return None
 
 
